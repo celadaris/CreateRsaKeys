@@ -40,7 +40,7 @@ namespace RsaAndShaInUse
             string hashConvertedToString = ShaStringBuilder(shaEncryptedBytes);
             byte[] convertedHashBackToBytes = Encoding.UTF8.GetBytes(hashConvertedToString);
             byte[] rehash = ShaEncrypt(convertedHashBackToBytes);
-            Console.WriteLine("\n * Rehashed hash:\n" + ShaStringBuilder(rehash));
+            Console.WriteLine("\n * Rehashed hash with sha256:\n" + ShaStringBuilder(rehash));
 
             //hash with SHA256 & THEN encryption with RSA
             byte[] shaRsaEncrytedBytes = RsaEncrypt(shaEncryptedBytes);
