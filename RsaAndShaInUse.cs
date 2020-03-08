@@ -68,8 +68,8 @@ namespace RsaAndShaInUse
 
         static byte[] ShaEncrypt(byte[] textBytes)
         {
-            SHA256Managed hashstring = new SHA256Managed();
-            return hashstring.ComputeHash(textBytes);
+            SHA256Managed hashString = new SHA256Managed();
+            return hashString.ComputeHash(textBytes);
         }
 
         static byte[] RsaEncrypt(byte[] textBytes)
