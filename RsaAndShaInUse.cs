@@ -65,7 +65,7 @@ namespace RsaAndShaInUse
         static byte[] RsaEncrypt(byte[] textBytes)
         {
             //get PublicKey pem File
-            PemReader KeyTextReader = new PemReader(File.OpenText(@"C:\Users\Tony\Documents\PublicKey.pem"));
+            PemReader KeyTextReader = new PemReader(File.OpenText(@"C:\Users\x\Documents\PublicKey.pem"));
             RsaKeyParameters publicKey =  KeyTextReader.ReadObject() as RsaKeyParameters;
 
             //encrypt byte array
@@ -78,7 +78,7 @@ namespace RsaAndShaInUse
         {
             //get private key pem file
             AsymmetricCipherKeyPair keyPair;
-            StreamReader reader = File.OpenText(@"C:\Users\Tony\Documents\PrivateKey.pem");
+            StreamReader reader = File.OpenText(@"C:\Users\x\Documents\PrivateKey.pem");
             keyPair = (AsymmetricCipherKeyPair)new PemReader(reader).ReadObject();
             RsaKeyParameters privateKey = keyPair.Private as RsaKeyParameters;
 
