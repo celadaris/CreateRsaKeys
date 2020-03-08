@@ -49,7 +49,7 @@ namespace RsaAndShaInUse
 
             //decrypt RSA with SHA256 hash left over
             byte[] shaRsaDecryptedBytes = RsaDecrypt(shaRsaEncrytedBytes);
-            Console.WriteLine("\n * Decrypted RSA text with sna256 hash left over:\n" + ShaStringBuilder(shaRsaDecryptedBytes));
+            Console.WriteLine("\n * Decrypted RSA text with sha256 hash left over:\n" + ShaStringBuilder(shaRsaDecryptedBytes));
 
             //program has ended
             Console.ReadLine();
