@@ -9,8 +9,8 @@ namespace CreatePemFiles
 {
     class Program
     {
-        const string publicFileLocation = @"C:\Users\x\Documents\PublicKey.pem";
-        const string privateFileLocation = @"C:\Users\x\Documents\PrivateKey.pem";
+        const string publicKeyFileLocation = @"C:\Users\x\Documents\PublicKey.pem";
+        const string privateKeyFileLocation = @"C:\Users\x\Documents\PrivateKey.pem";
 
         static void Main(string[] args)
         {
@@ -44,11 +44,11 @@ namespace CreatePemFiles
 
             if (key.IsPrivate)
             {
-                fileLocation = privateFileLocation;
+                fileLocation = privateKeyFileLocation;
             }
             else
             {
-                fileLocation = publicFileLocation;
+                fileLocation = publicKeyFileLocation;
             }
 
             File.WriteAllText(fileLocation, printKey);
