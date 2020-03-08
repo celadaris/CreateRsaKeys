@@ -59,7 +59,7 @@ namespace RsaAndShaInUse
         static string ShaStringBuilder(byte[] textBytes)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            foreach (var i in textBytes)
+            foreach (byte i in textBytes)
             {
                 stringBuilder.Append(i.ToString("x2"));
             }
