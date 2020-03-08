@@ -25,16 +25,16 @@ namespace RsaAndShaInUse
             //encryption with RSA
             byte[] rsaEncryptedBytes = RsaEncrypt(inputBytes);
             string rsaEncryptedString = Encoding.UTF8.GetString(rsaEncryptedBytes);
-            Console.WriteLine("\n * Encrypted text:\n" + rsaEncryptedString);
+            Console.WriteLine("\n * RSA Encrypted text:\n" + rsaEncryptedString);
 
             //decryption with RSA
             byte[] rsaDecryptedBytes = RsaDecrypt(rsaEncryptedBytes);
             string rsaDecryptedString = Encoding.UTF8.GetString(rsaDecryptedBytes);
-            Console.WriteLine("\n * Decrypted text:\n" + rsaDecryptedString);
+            Console.WriteLine("\n * Decrypted RSA text:\n" + rsaDecryptedString);
 
             //hash with SHA256
             byte[] shaEncryptedBytes = ShaEncrypt(inputBytes);
-            Console.WriteLine("\n * SHA256 Encryption:\n" + ShaStringBuilder(shaEncryptedBytes));
+            Console.WriteLine("\n * SHA256 hash:\n" + ShaStringBuilder(shaEncryptedBytes));
 
             //hash and rehash with SHA256
             string hashConvertedToString = ShaStringBuilder(shaEncryptedBytes);
@@ -45,11 +45,11 @@ namespace RsaAndShaInUse
             //hash with SHA256 & THEN encryption with RSA
             byte[] shaRsaEncrytedBytes = RsaEncrypt(shaEncryptedBytes);
             string shaRsaEncrytedString = Encoding.UTF8.GetString(shaRsaEncrytedBytes);
-            Console.WriteLine("\n *  Encryption with sha256 and THEN RSA:\n" + shaRsaEncrytedString);
+            Console.WriteLine("\n * Hash with sha256 and THEN encrypt with RSA:\n" + shaRsaEncrytedString);
 
-            //hash with SHA256 & THEN decryption RSA
+            //decrypt RSA with SHA256 hash left over
             byte[] shaRsaDecryptedBytes = RsaDecrypt(shaRsaEncrytedBytes);
-            Console.WriteLine("\n * Decryption with sha256 and THEN RSA:\n" + ShaStringBuilder(shaRsaDecryptedBytes));
+            Console.WriteLine("\n * Decrypted RSA text with sna256 hash left over:\n" + ShaStringBuilder(shaRsaDecryptedBytes));
 
             //program has ended
             Console.ReadLine();
