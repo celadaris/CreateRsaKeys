@@ -38,14 +38,14 @@ namespace CreatePemFiles
         
         static void CreatePem(RsaKeyParameters key)
         {
-            TextWriter textWriterPublic = new StringWriter();
-            PemWriter pemWriterPublic = new PemWriter(textWriterPublic);
+            TextWriter textWriter = new StringWriter();
+            PemWriter pemWriter = new PemWriter(textWriter);
             string printKey;
             string fileLocation;
 
-            pemWriterPublic.WriteObject(key);
-            pemWriterPublic.Writer.Flush();
-            printKey = textWriterPublic.ToString();
+            pemWriter.WriteObject(key);
+            pemWriter.Writer.Flush();
+            printKey = textWriter.ToString();
 
             if (key.IsPrivate)
             {
