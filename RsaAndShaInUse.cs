@@ -38,7 +38,8 @@ namespace RsaAndShaInUse
             
             //encryption with SHA256 & THEN RSA
             byte[] shaRsaEncrytedBytes = RsaEncrypt(shaEncryptedBytes);
-            Console.WriteLine("\n *  Encryption with sha256 and THEN RSA:\n" + ShaStringBuilder(shaRsaEncrytedBytes));
+            string shaRsaEncrytedString = Encoding.UTF8.GetString(shaRsaEncrytedBytes);
+            Console.WriteLine("\n *  Encryption with sha256 and THEN RSA:\n" + shaRsaEncrytedString);
 
             //decryption with SHA256 & THEN RSA
             byte[] shaRsaDecryptedBytes = RsaDecrypt(shaRsaEncrytedBytes);
