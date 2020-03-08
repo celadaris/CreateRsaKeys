@@ -56,20 +56,20 @@ namespace RsaAndShaInUse
         }
 
         //Converts SHA256 byte[] to string
-        static string ShaStringBuilder(byte[] bytesToRead)
+        static string ShaStringBuilder(byte[] textBytes)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            foreach (var i in bytesToRead)
+            foreach (var i in textBytes)
             {
                 stringBuilder.Append(i.ToString("x2"));
             }
             return stringBuilder.ToString();
         }
 
-        static byte[] ShaEncrypt(byte[] ct)
+        static byte[] ShaEncrypt(byte[] textBytes)
         {
             SHA256Managed hashstring = new SHA256Managed();
-            return hashstring.ComputeHash(ct);
+            return hashstring.ComputeHash(textBytes);
         }
 
         static byte[] RsaEncrypt(byte[] textBytes)
