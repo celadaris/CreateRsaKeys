@@ -12,8 +12,8 @@ namespace RsaAndShaInUse
 {
     class Program
     {
-        const string publicFileLocation = @"C:\Users\x\Documents\PublicKey.pem";
-        const string privateFileLocation = @"C:\Users\x\Documents\PrivateKey.pem";
+        const string publicKeyFileLocation = @"C:\Users\x\Documents\PublicKey.pem";
+        const string privateKeyFileLocation = @"C:\Users\x\Documents\PrivateKey.pem";
 
         static void Main(string[] args)
         {   
@@ -75,7 +75,7 @@ namespace RsaAndShaInUse
         static byte[] RsaEncrypt(byte[] textBytes)
         {
             //get PublicKey pem File
-            PemReader KeyTextReader = new PemReader(File.OpenText(publicFileLocation));
+            PemReader KeyTextReader = new PemReader(File.OpenText(publicKeyFileLocation));
             RsaKeyParameters publicKey =  KeyTextReader.ReadObject() as RsaKeyParameters;
 
             //encrypt byte array
@@ -88,7 +88,7 @@ namespace RsaAndShaInUse
         {
             //get private key pem file
             AsymmetricCipherKeyPair keyPair;
-            StreamReader reader = File.OpenText(privateFileLocation);
+            StreamReader reader = File.OpenText(privateKeyFileLocation);
             keyPair = (AsymmetricCipherKeyPair)new PemReader(reader).ReadObject();
             RsaKeyParameters privateKey = keyPair.Private as RsaKeyParameters;
 
