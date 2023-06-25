@@ -22,32 +22,26 @@ namespace RsaAndShaInUse
             string input = Console.ReadLine();
             byte[] inputBytes = Encoding.UTF8.GetBytes(input);
 
-            //encryption with RSA
             byte[] rsaEncryptedBytes = RsaEncrypt(inputBytes);
             string rsaEncryptedString = Encoding.UTF8.GetString(rsaEncryptedBytes);
             Console.WriteLine("\n * RSA Encrypted text:\n" + rsaEncryptedString);
 
-            //decryption with RSA
             byte[] rsaDecryptedBytes = RsaDecrypt(rsaEncryptedBytes);
             string rsaDecryptedString = Encoding.UTF8.GetString(rsaDecryptedBytes);
             Console.WriteLine("\n * Decrypted RSA text:\n" + rsaDecryptedString);
 
-            //hash with SHA256
             byte[] shaEncryptedBytes = ShaEncrypt(inputBytes);
             Console.WriteLine("\n * SHA256 hash:\n" + ShaStringBuilder(shaEncryptedBytes));
 
-            //hash and rehash with SHA256
             string hashConvertedToString = ShaStringBuilder(shaEncryptedBytes);
             byte[] convertedHashBackToBytes = Encoding.UTF8.GetBytes(hashConvertedToString);
             byte[] reHash = ShaEncrypt(convertedHashBackToBytes);
             Console.WriteLine("\n * Rehashed hash with SHA256:\n" + ShaStringBuilder(reHash));
 
-            //hash with SHA256 & THEN encryption with RSA
             byte[] shaRsaEncrytedBytes = RsaEncrypt(shaEncryptedBytes);
             string shaRsaEncrytedString = Encoding.UTF8.GetString(shaRsaEncrytedBytes);
             Console.WriteLine("\n * Hash with SHA256 and THEN encrypt with RSA:\n" + shaRsaEncrytedString);
 
-            //decrypt RSA with SHA256 hash left over
             byte[] shaRsaDecryptedBytes = RsaDecrypt(shaRsaEncrytedBytes);
             Console.WriteLine("\n * Decrypted RSA text with SHA256 hash left over:\n" + ShaStringBuilder(shaRsaDecryptedBytes));
 
